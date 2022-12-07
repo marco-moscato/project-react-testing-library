@@ -73,7 +73,11 @@ describe('Testa o componente Pokédex.js', () => {
     });
 
     test('Testa se o botão `All` está sempre visível', () => {
+      renderWithRouter(<App />);
 
+      const buttonAll = screen.getByRole('button', { name: /all/i });
+      userEvent.click(buttonAll);
+      expect(buttonAll).toBeEnabled();
     });
   });
 });
